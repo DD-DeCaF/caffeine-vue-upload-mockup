@@ -4,6 +4,7 @@
       <v-toolbar-side-icon @click.stop="navDrawer = !navDrawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text">Caffeine</v-toolbar-title>
       <v-spacer></v-spacer>
+      <login-dialog></login-dialog>
     </v-toolbar>
     <v-navigation-drawer temporary v-model="navDrawer" app>
       <v-list>
@@ -47,9 +48,14 @@
 </template>
 
 <script>
+import LoginDialog from '@/components/LoginDialog.vue';
+
 export default {
   data: () => ({
     navDrawer: false,
   }),
+  components: {
+    'login-dialog': LoginDialog,
+  },
 };
 </script>
