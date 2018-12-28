@@ -69,7 +69,7 @@
 
 <script>
 import * as axios from 'axios';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import settings from '@/settings';
 
