@@ -1,0 +1,36 @@
+language: node_js
+node_js:
+  - "node"
+
+git:
+  depth: 2
+
+branches:
+  only:
+  - master
+  - devel
+
+cache: npm
+
+env:
+  global:
+    - IMAGE_REPO=gcr.io/dd-decaf-cfbf6/memote-service-frontend
+
+before_install:
+  - npm install -g @vue/cli @vue/cli-service-global
+
+install:
+  - npm ci
+  - npm run build
+
+script:
+  - npx vue-cli-service lint --no-fix
+  - npx vue-cli-service test:unit
+
+notifications:
+  email: false
+  slack:
+    rooms:
+      secure: "OeJwc6KrIOrZbMmZ6SnRTlmpk0KoPZhqAlnVmmaZrj3QXFkaDDz5FdF7MeAbDBBXFC5+gIZxGSQDmMDd+n4tS8XmddCpJ0Kz0+0R949eR+lTJhY7KdOIFuuqKLIqsZ32hTWHJKp6DGOvC+N3ffJFAAW51yqr421S1+rstR8C68zsA1JkNXj06SZO6F/SdkT3PetSdxHhN88GM3XOlIlgX7lXanMLDMokrTvKXbgZQjcTdJZVVciLKz+2MPkNZd+YxmrpJDs/Ne6R9uRtFTNKdUx2H3ejRuPUvE08fYVxsmLS1GQZyFccTxFYBGpPplbM48AGfQgyhB/g2gaHc+uxG96jjG+4+AEL/dUdVJ/B061BZKJxqlvYK/swHtRRxtOYnY2YTDani+D6Y0QXodqwGMzvCj7Ov0FdHY4mnipv/P1+eMniTKgT24qp+vQ38RRAMUwCFUTEpUGUla5UP2uBagMtiCrLOwdLPXlPWyF7eF6v2THxPHKoeqk5HD6ihDDDu4DjlHlfBE0J//LCYpY+P+EJf6BtR9C1tQQ9fM4Ojrqy88BwX0EQY9yPuuYHXTyW3lNYTtv8TXazlI7AyvZIpW8IZAywB09yf5w9Ajy6cMgVcdtmFTJ2Ae+4KCIlMoqfX/O46D19OV5g/38OSVPf7Eam4uCdyKrKKiwY8aGulXs="
+    on_success: always
+    on_failure: always
