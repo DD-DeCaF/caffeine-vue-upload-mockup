@@ -12,10 +12,6 @@ branches:
 
 cache: npm
 
-env:
-  global:
-    - IMAGE_REPO=gcr.io/dd-decaf-cfbf6/memote-service-frontend
-
 before_install:
   - npm install -g @vue/cli @vue/cli-service-global
 
