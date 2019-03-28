@@ -9,34 +9,53 @@
     <v-navigation-drawer temporary v-model="navDrawer" app>
       <v-list>
         <v-list-tile :to="'/'">
-          <v-list-tile-action><v-icon>home</v-icon></v-list-tile-action>
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
           <v-list-tile-title>Home</v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile :to="'/design'">
-          <v-list-tile-action><v-icon>edit</v-icon></v-list-tile-action>
+          <v-list-tile-action>
+            <v-icon>edit</v-icon>
+          </v-list-tile-action>
           <v-list-tile-title>Design</v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile :to="'/interactiveMap'">
           <!-- TODO: use custom icon -->
-          <v-list-tile-action><v-icon>timeline</v-icon></v-list-tile-action>
+          <v-list-tile-action>
+            <v-icon>timeline</v-icon>
+          </v-list-tile-action>
           <v-list-tile-title>Interactive Map</v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile :to="'/jobs'">
-          <v-list-tile-action><v-icon>hourglass_empty</v-icon></v-list-tile-action>
+          <v-list-tile-action>
+            <v-icon>hourglass_empty</v-icon>
+          </v-list-tile-action>
           <v-list-tile-title>Jobs</v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile :to="'/maps'">
-          <v-list-tile-action><v-icon>map</v-icon></v-list-tile-action>
+          <v-list-tile-action>
+            <v-icon>map</v-icon>
+          </v-list-tile-action>
           <v-list-tile-title>Maps</v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile :to="'/models'">
-          <v-list-tile-action><v-icon>rounded_corner</v-icon></v-list-tile-action>
+          <v-list-tile-action>
+            <v-icon>rounded_corner</v-icon>
+          </v-list-tile-action>
           <v-list-tile-title>Models</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile :to="'/experiments'">
+          <v-list-tile-action>
+            <v-icon>highlight</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>Experiments</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -48,14 +67,14 @@
 </template>
 
 <script>
-import LoginDialog from '@/components/LoginDialog.vue';
+  import LoginDialog from '@/components/LoginDialog.vue';
 
-export default {
-  data: () => ({
-    navDrawer: false,
-  }),
-  components: {
-    'login-dialog': LoginDialog,
-  },
-};
+  export default {
+    data: () => ({
+      navDrawer: false,
+    }),
+    components: {
+      'login-dialog': LoginDialog,
+    },
+  };
 </script>
