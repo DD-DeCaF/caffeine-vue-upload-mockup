@@ -25,7 +25,22 @@
                 :items="items"
                 class="elevation-1">
                 <template v-slot:items="props">
-                  <td v-for="header in headers" v-bind:style="[Math.random() % 2 < 0.5 ? {color: 'red', textDecoration: 'underline', cursor: 'pointer'} : {}]">{{ props.item[header.text] }}</td>
+                  <td v-for="header in headers" >
+                    <v-edit-dialog
+                      v-bind:class="{ 'error-cell': Math.random() % 2 < 0.5}"
+                      :return-value.sync="props.item[header.text]"
+                      lazy
+                    > {{ props.item[header.text] }}
+                      <template v-slot:input>
+                        <v-text-field
+                          v-model="props.item[header.text]"
+                          label="Edit"
+                          single-line
+                          counter
+                        ></v-text-field>
+                      </template>
+                    </v-edit-dialog>
+                  </td>
                 </template>
               </v-data-table>
             </div>
@@ -214,5 +229,11 @@
     width: 50px;
     height: 50px;
     font-size: 50px;
+  }
+
+  .error-cell div.v-menu__activator a {
+    color: red !important;
+    text-decoration: underline;
+    cursor: pointer;
   }
 </style>
