@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "firebase": "^5.8.0",
-    "papaparse": "^4.6.3",
+    "papaparse": "^5.2.0",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
     "vuetify": "^1.4.2",
